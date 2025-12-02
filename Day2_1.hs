@@ -17,7 +17,7 @@ countInvalidIDs (a, b) acc | (a == b) = acc + isInvalidID (show b)
 
 
 analyze :: [String] -> String
-analyze s = show (count1 s 0) -- ++ " " ++ show (count2 s (0, 50))
+analyze s = show (count1 s 0)
 
 count1 :: [String] -> Int -> Int
 count1 [] acc            = acc
