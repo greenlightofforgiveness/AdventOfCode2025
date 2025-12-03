@@ -1,6 +1,6 @@
 module Main (main) where
 import Data.Functor ((<$>))
-import Data.List (find)
+import Data.List (find, singleton)
 import qualified Data.Map as Map
 import Data.Maybe
 import System.IO
@@ -16,7 +16,7 @@ count1 :: [String] -> Int -> Int
 count1 [] acc            = acc
 count1 (x : xs) acc      = count1 xs (acc + acc')
                                         where   l = length x - 1
-                                                m = Map.fromListWith (++) (zip x (map (\x -> [x]) [0 .. l]))
+                                                m = Map.fromListWith (++) (zip x (map singleton [0 .. l]))
                                                 k = reverse (Map.keys m)
                                                 acc' | length k == 1 = read ([x !! 0] ++ [x !! 0]) :: Int
                                                      | otherwise = max cand1 cand2
