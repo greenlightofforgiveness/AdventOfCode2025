@@ -17,6 +17,5 @@ analyze2 s = show $ helper (sort d) (-1) 0
 helper :: [(Int, Int)] -> Int -> Int -> Int
 helper [] prevUpper cnt              = cnt
 helper ((a, b) : xs) prevUpper cnt  | b <= prevUpper = helper xs prevUpper cnt
-                                    | otherwise = helper xs prevUpper' cnt'
+                                    | otherwise = helper xs b cnt'
                                                 where cnt' = cnt + b - (max a (prevUpper + 1)) + 1
-                                                      prevUpper' = b
