@@ -19,4 +19,4 @@ helper [] prevUpper cnt              = cnt
 helper ((a, b) : xs) prevUpper cnt  | b <= prevUpper = helper xs prevUpper cnt
                                     | otherwise = helper xs prevUpper' cnt'
                                                 where cnt' = cnt + b - (max a (prevUpper + 1)) + 1
-                                                      prevUpper' = max b prevUpper
+                                                      prevUpper' = b
