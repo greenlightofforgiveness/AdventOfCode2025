@@ -13,7 +13,6 @@ analyze :: [String] -> String
 analyze s = show $ helper numbs m 0
                         where numbs = map (map (\x -> read x :: Int)) $ splitWhen (all (== ' ')) $ transpose (init s)
                               m = filter (/= ' ' ) (last s)
-                              l = length s - 1
 
 helper :: [[Int]] -> String -> Int -> Int                              
 helper [] _ acc = acc
