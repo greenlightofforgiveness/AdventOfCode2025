@@ -13,7 +13,8 @@ analyze :: [String] -> String
 analyze s = show $ helper numbs m 0
                         where numbs = transpose $ map (\str -> map (\x -> read x :: Int) $ filter (/= "") $ splitWhen (not . isDigit) str) (init s)
                               m = filter (/= ' ' ) (last s)
-                              
+
+helper :: [[Int]] -> String -> Int -> Int                              
 helper [] _ acc = acc
 helper (x : xs) (m : ms) acc = helper xs ms (acc + acc')
                                         where acc' | m == '*' = foldl (*) 1 x
