@@ -2,7 +2,6 @@ module Main (main) where
 import Data.Functor ((<$>))
 import Data.List.Split (splitWhen)
 import Data.List (transpose, init)
-import Data.Char (isDigit)
 import System.IO
             
 main = do  
