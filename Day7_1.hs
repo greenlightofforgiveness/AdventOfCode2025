@@ -19,7 +19,7 @@ findS s (row, col) (row_max, col_max) | (s !! row) !! col == 'S' = (row, col)
                                       | otherwise = findS s (row, col + 1) (row_max, col_max)
                                       
 findSps :: [String] -> (Int, Int) -> (Int, Int) -> [(Int, Int)] -> [(Int, Int)]
-findSps s (row, col) (row_max, col_max) acc | ((col == col_max) && (row == row_max)) = acc
+findSps s (row, col) (row_max, col_max) acc | ((col == col_max) && (row == row_max)) = acc ++ acc'
                                             | col == col_max = findSps s (row + 1, 0) (row_max, col_max) (acc ++ acc')
                                             | otherwise = findSps s (row, col + 1) (row_max, col_max) (acc ++ acc')
                                                     where acc' = if (s !! row) !! col == '^' then [(row, col)] else []
