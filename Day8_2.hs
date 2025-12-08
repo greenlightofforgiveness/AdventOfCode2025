@@ -11,7 +11,7 @@ main = do
     putStrLn $ analyze $ lines contents
 
 analyze :: [String] -> String
-analyze s = show $ ans
+analyze s = show $ round ans
                 where s' = map (\t -> let [x, y, z] = splitOn "," t in (read x :: Double, read y :: Double, read z :: Double)) s
                       pairs = [ (a, b) | a <- s', b <- s', a > b]
                       dist = map (\((x1, y1, z1), (x2, y2, z2)) -> let d = sqrt((x1 - x2)^2 + (y1 - y2)^2 + (z1 - z2)^2) in ((x1, y1, z1), (x2, y2, z2), d)) pairs
