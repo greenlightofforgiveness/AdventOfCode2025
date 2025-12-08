@@ -1,6 +1,6 @@
 module Main (main) where
 import Data.Functor ((<$>))
-import Data.List (sortBy, sort, find, delete, nub)
+import Data.List (sortBy, sort, find, delete)
 import Data.List.Split (splitOn)
 import Data.Maybe (fromJust)
 import qualified Data.Set as Set
