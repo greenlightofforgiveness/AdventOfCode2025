@@ -9,6 +9,6 @@ main = do
 
 analyze :: [String] -> String
 analyze s = show $ maximum areas
-                where s' = map (\t -> let [x, y] = splitOn "," t in (read x :: Int, read y :: Int)) s
-                      pairs = [ ((x1, y1), (x2, y2)) | (x1, y1) <- s', (x2, y2) <- s', x1 <= x2, y1 <= y2]
-                      areas = map (\((x1, y1), (x2, y2)) -> (x2 - x1 + 1) * (y2 - y1 + 1)) pairs
+                where s' = map (\t -> let [c, r] = splitOn "," t in (read r :: Int, read c :: Int)) s
+                      pairs = [ ((r1, c1), (r2, c2)) | (r1, c1) <- s', (r2, c2) <- s', c1 <= c2]
+                      areas = map (\((r1, c1), (r2, c2)) -> (abs (r2 - r1 + 1)) * (abs (c2 - c1 + 1))) pairs
