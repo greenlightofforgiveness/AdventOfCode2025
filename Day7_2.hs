@@ -3,6 +3,8 @@ import Data.Functor ((<$>))
 import Data.List (elem)
 import qualified Data.Map as Map
 import System.IO
+
+-- https://www.reddit.com/r/adventofcode/comments/1pgb377/2025_day_7_part_2_hint/
             
 main = do  
     contents <- readFile "input.txt"
