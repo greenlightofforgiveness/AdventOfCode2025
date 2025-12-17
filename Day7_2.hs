@@ -33,6 +33,7 @@ helper row posSps (row_max, col_max) acc | row == row_max = acc
                                          | otherwise = helper (row + 1) posSps (row_max, col_max) acc' 
                                                 where acc' = Map.fromListWith (+) $ concatMap (\(c, x) -> func c x row col_max posSps) (Map.toList acc)
                                                 
+func :: Int -> Int -> Int -> Int -> [(Int, Int)] -> [(Int, Int)]                                                
 func c x row col_max posSps | ((row + 1, c) `elem` posSps) && (c > 0) && (c < col_max) = [(c - 1, x), (c + 1, x), (c, 0)]
                             | ((row + 1, c) `elem` posSps) && (c > 0) = [(c - 1, x), (c, 0)]
                             | ((row + 1, c) `elem` posSps) && (c < col_max) = [(c + 1, x), (c, 0)]
